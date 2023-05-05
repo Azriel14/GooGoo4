@@ -1,2 +1,6 @@
 # GooGoo4
-For the Go Godot Jam 4 Game Jam
+This is my and SonicMam's submission to the 4th Go Godot Jam.
+
+Language: GDScript
+
+Renderer: GLES 2
