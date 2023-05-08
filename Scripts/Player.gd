@@ -16,21 +16,12 @@ func _physics_process(delta):
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	)
+
 	if input_vector == Vector2.ZERO:
 		momentum = Vector2.ZERO
 	else:
 		momentum = momentum.move_toward(input_vector * speed, speed * delta)
 	move_and_slide(momentum)
-
-	# Screen Wrap
-	if position.x < 0:
-		position.x = screenSize.x
-	elif position.x > screenSize.x:
-		position.x = 0
-	if position.y < 0:
-		position.y = screenSize.y
-	elif position.y > screenSize.y:
-		position.y = 0
 
 	# Animation
 	var direction = Vector2.ZERO
