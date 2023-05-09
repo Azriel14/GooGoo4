@@ -1,14 +1,11 @@
 extends KinematicBody2D
 
-export var speed = 200
-var momentum = Vector2.ZERO
+export var speed = 175
+var velocity = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 var isMoving = false
 onready var animation = $Animation
-
-func _ready():
-	screenSize = get_viewport_rect().size
 
 func _physics_process(delta):
 	# Movement
@@ -18,17 +15,19 @@ func _physics_process(delta):
 	)
 
 	if input_vector == Vector2.ZERO:
-		momentum = Vector2.ZERO
+		velocity = Vector2.ZERO
 	else:
-		momentum = momentum.move_toward(input_vector * speed, speed * delta)
-	move_and_slide(momentum)
+		velocity = input_vector.normalized() * speed
+	move_and_slide(velocity)
 
 	# Animation
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
 		direction = Vector2.UP
+		$Silvangoisse.flip_h = false
 	elif Input.is_action_pressed("ui_down"):
 		direction = Vector2.DOWN
+		$Silvangoisse.flip_h = false
 	elif Input.is_action_pressed("ui_right"):
 		direction = Vector2.RIGHT
 		$Silvangoisse.flip_h = false
