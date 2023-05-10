@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shadow-export.png-1f4b28de6875e47052a8e899d5e3b611.stex"
+path="res://.import/JermaSus.webp-b97d03c8b49ccbe1652f4d464879e77e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Shadow-export.png"
-dest_files=[ "res://.import/Shadow-export.png-1f4b28de6875e47052a8e899d5e3b611.stex" ]
+source_file="res://Assets/Misc/JermaSus.webp"
+dest_files=[ "res://.import/JermaSus.webp-b97d03c8b49ccbe1652f4d464879e77e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

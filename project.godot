@@ -70,4 +70,5 @@ quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 quality/filters/use_nearest_mipmap_filter=true
+environment/default_clear_color=Color( 0.0235294, 0.0313726, 0.0392157, 1 )
 environment/default_environment="res://default_env.tres"
