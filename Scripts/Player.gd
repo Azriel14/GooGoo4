@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 1000
+export var speed = 175
 var velocity = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
