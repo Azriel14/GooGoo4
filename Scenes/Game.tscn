@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Sprites/DoctorSilvangoisse-export.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Shadow-export.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Sprites/TileSet-export.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Lanterns-export.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Decor-export.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Misc/LightTexture.webp" type="Texture" id=7]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=4]
 resource_name = "IdleD"
@@ -368,6 +370,9 @@ extents = Vector2( 3200, 25 )
 [sub_resource type="Environment" id=9]
 background_mode = 4
 
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 53.5, 85 )
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -412,6 +417,12 @@ drag_margin_bottom = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
+[node name="Light2D" type="Light2D" parent="Player"]
+position = Vector2( 19, 18 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 3.0
+
 [node name="Stage" type="Node2D" parent="."]
 
 [node name="Lanterns" type="TileMap" parent="Stage"]
@@ -420,6 +431,209 @@ tile_set = SubResource( 15 )
 cell_size = Vector2( 63, 63 )
 format = 1
 tile_data = PoolIntArray( -2817972, 0, 0, -2817950, 1, 0, -2555896, 3, 0, -2424778, 1, 0, -2359274, 1, 0, -2293685, 1, 0, -2162650, 2, 0, -2162640, 3, 0, -1900468, 0, 0, -1900446, 1, 0, -1572826, 0, 0, -1376228, 1, 0, -1310709, 2, 0, -1179644, 0, 0, -982989, 3, 0, -982964, 0, 0, -982942, 1, 0, -851936, 0, 0, -851934, 1, 0, -851919, 0, 0, -786417, 1, 0, -327649, 2, 0, -327645, 3, 0, -327628, 1, 0, -196584, 0, 0, -196566, 1, 0, 21, 3, 0, 65615, 2, 0, 65631, 3, 0 )
+
+[node name="Light2D" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 1346, 46 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D2" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 1528, -150 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D3" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 1973, -277 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D4" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2245, -274 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D5" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2034, -780 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D6" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2190, -785 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D7" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2690, -156 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D8" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 988, -716 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D9" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 713, -1220 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D10" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 272, -1099 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D11" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 1802, -1288 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D12" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 548, -2419 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D13" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 1429, -2235 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D14" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2416, -2041 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D15" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 3072, -2037 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D16" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 3446, -2295 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D17" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 2417, -1481 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D18" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 3261, -906 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D19" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 3108, -787 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D20" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 3321, -282 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D21" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 4774, -2170 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D22" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 4819, -2673 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D23" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 6218, -2679 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D24" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 6221, -1792 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D25" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 4807, -1792 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D26" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 4813, -917 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D27" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 6218, -908 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D28" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 6023, 98.9999 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
+
+[node name="Light2D29" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 5001, 96 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+color = Color( 0.0156863, 0.184314, 0.0352941, 1 )
+energy = 5.0
 
 [node name="Decor Shit" type="TileMap" parent="Stage"]
 z_index = -2
@@ -453,11 +667,19 @@ shape = SubResource( 13 )
 position = Vector2( 3200, 720 )
 shape = SubResource( 14 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Stage"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stage/StaticBody2D"]
-build_mode = 1
-polygon = PoolVector2Array( 441, 63, 441, 504, 4599, 504, 4600, -1827, 4725, -1827, 4725, -1323, 4788, -1323, 4788, -1008, 4725, -1008, 4725, -441, 4788, -441, 4788, 63, 4851, 63, 4851, 126, 4914, 126, 4914, 189, 4978, 189, 4977, 252, 5166, 252, 5166, 504, 5859, 504, 5859, 252, 6048, 252, 6048, 189, 6111, 189, 6111, 126, 6174, 126, 6174, 63, 6237, 63, 6237, -441, 6301, -441, 6301, -1008, 6237, -1008, 6237, -1324, 6301, -1324, 6300, -1890, 6238, -1890, 6237, -2205, 6300, -2205, 6301, -2205, 6301, -2772, 4725, -2772, 4725, -2268, 4158, -2267, 4158, -1260, 3024, -1260, 3024, -441, 4158, -441, 4158, 63, 3969, 63, 3969, -315, 3907, -315, 3906, -315, 3906, -378, 3591, -378, 3591, -315, 3528, -315, 3528, 62, 3465, 63, 3465, -315, 3402, -315, 3402, -378, 3087, -378, 3087, -315, 3024, -315, 3024, 63, 2772, 63, 2772, -1512, 3528, -1512, 3528, -2394, 3465, -2394, 3465, -2457, 3150, -2457, 3150, -2394, 3087, -2394, 3087, -2457, 2772, -2457, 2773, -2394, 2709, -2394, 2709, -2457, 2394, -2457, 2394, -2394, 2331, -2394, 2331, -819, 2268, -819, 2268, -882, 1953, -882, 1953, -819, 1890, -819, 1890, -1386, 1827, -1386, 1827, -1448, 1827, -1449, 1512, -1449, 1512, -1386, 1449, -1386, 1449, -1197, 1071, -1197, 1071, -1449, 1008, -1449, 1008, -1512, 693, -1512, 694, -1449, 630, -1449, 630, -1890, 2079, -1890, 2079, -2331, 630, -2331, 630, -2709, 567, -2709, 567, -2772, 252, -2772, 252, -2709, 189, -2709, 189, -756, 630, -756, 630, -504, 693, -504, 693, -441, 1008, -441, 1008, -504, 1071, -504, 1071, -756, 1449, -756, 1449, -126, 1386, -126, 1386, -189, 1071, -189, 1071, -127, 1071, -126, 1008, -126, 1008, 63, 600, 413, 441, 63 )
-
 [node name="Shaders" type="WorldEnvironment" parent="."]
 environment = SubResource( 9 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="General Enemies" type="KinematicBody2D" parent="Enemies"]
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Enemies/General Enemies"]
+position = Vector2( 2143, 109 )
+texture = ExtResource( 1 )
+hframes = 42
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/General Enemies"]
+position = Vector2( 2128.5, 158 )
+shape = SubResource( 17 )
