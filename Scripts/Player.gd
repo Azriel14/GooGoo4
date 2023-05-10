@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
-export var speed = 175
+export var speed = 1000
 var velocity = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 var isMoving = false
 onready var animation = $Animation
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Movement
 	var input_vector = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
