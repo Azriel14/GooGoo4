@@ -9,25 +9,34 @@ var isDamageExecuting = false
 export var health = 20
 onready var animation = $Animation
 
-func damage():
+func _damage():
 	if not isDamageExecuting and health > 0:
 		isDamageExecuting = true
 		health -= 1
 		print(health)
-		yield(get_tree().create_timer(1.0), "timeout")
+		yield(get_tree().create_timer(1.5), "timeout")
 		isDamageExecuting = false
 
-func _physics_process(_delta):
-	# Movement
+func _physics_process(delta):
+	# Movement + Footsteps
 	var input_vector = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	)
+		)
 
 	if input_vector == Vector2.ZERO:
 		motion = Vector2.ZERO
+		$Footsteps.volume_db -= delta * 40
+		if $Footsteps.volume_db < -80:
+			$Footsteps.stop()
 	else:
 		motion = input_vector.normalized() * speed
+		$Footsteps.volume_db += delta * 80
+		if !$Footsteps.playing:
+			$Footsteps.play()
+		if $Footsteps.volume_db > -5:
+			$Footsteps.volume_db = -5
+
 	move_and_slide(motion)
 
 	# Animation

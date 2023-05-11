@@ -72,4 +72,4 @@ func _physics_process(delta: float):
 	
 	for body in overlapping_bodies:
 		if body.is_in_group("Player"):
-			body.damage()
+			body._damage()
