@@ -6,7 +6,7 @@ var motion := Vector2.ZERO
 var originalPosition
 var isSpoopying = false
 var isNotSpoopying = false
-onready var player := get_node(pathToPlayer)
+onready var player := get_tree().get_root().get_node("Game").get_node("Player")
 onready var pathfinding = $Pathfinding
 onready var animation = $Animation
 onready var timer = $Timer
@@ -23,7 +23,7 @@ func _updatePathfinding():
 func _dontSpoop():
 	if not isNotSpoopying:
 		isNotSpoopying = true
-		$Sound.stream = load("res://Assets/Sounds/EnemyIdle.wav")
+		$Sound.stream = load("res://Assets/Sounds/EnemyIdle.ogg")
 		$Sound.play()
 		yield(get_tree().create_timer(22.0), "timeout")
 		isNotSpoopying = false
@@ -33,7 +33,7 @@ func _spoop():
 		isSpoopying = true
 		$Sound.stream = load("res://Assets/Sounds/EnemyNotice.wav")
 		$Sound.play()
-		yield(get_tree().create_timer(7.0), "timeout")
+		yield(get_tree().create_timer(25.0), "timeout")
 		isSpoopying = false
 
 func _physics_process(delta: float):

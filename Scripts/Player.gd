@@ -26,16 +26,16 @@ func _physics_process(delta):
 
 	if input_vector == Vector2.ZERO:
 		motion = Vector2.ZERO
-		$Footsteps.volume_db -= delta * 40
-		if $Footsteps.volume_db < -80:
+		$Footsteps.volume_db -= delta * 20
+		if $Footsteps.volume_db < -30:
 			$Footsteps.stop()
 	else:
 		motion = input_vector.normalized() * speed
-		$Footsteps.volume_db += delta * 80
+		$Footsteps.volume_db += delta * 20
 		if !$Footsteps.playing:
 			$Footsteps.play()
-		if $Footsteps.volume_db > -5:
-			$Footsteps.volume_db = -5
+		if $Footsteps.volume_db > 3:
+			$Footsteps.volume_db = 3
 
 	move_and_slide(motion)
 

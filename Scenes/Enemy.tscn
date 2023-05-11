@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Infected-export.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sounds/EnemyIdle.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Misc/LightTexture.webp" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "DraggingLRD"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Infected:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "DraggingU"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Infected:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Infected:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 20.0
+height = 30.0
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 35, 51, 35, 56, -18, 56, -18, 51 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 35, 40 )
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Infected" type="Sprite" parent="."]
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/DraggingLRD = SubResource( 1 )
+anims/DraggingU = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="InfeCollision" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="RingLight" type="Light2D" parent="."]
+position = Vector2( 1, 0 )
+texture = ExtResource( 4 )
+texture_scale = 1.25
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+energy = 4.0
+
+[node name="Shadow" type="LightOccluder2D" parent="."]
+position = Vector2( -8, 15 )
+occluder = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Pathfinding" type="NavigationAgent2D" parent="."]
+path_desired_distance = 0.1
+target_desired_distance = 30.0
+path_max_distance = 10.0
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+max_distance = 1100.0
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 6 )
