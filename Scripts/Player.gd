@@ -1,11 +1,21 @@
 extends KinematicBody2D
 
 export var speed = 175
-var velocity = Vector2.ZERO
+var motion = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 var isMoving = false
+var isDamageExecuting = false
+export var health = 20
 onready var animation = $Animation
+
+func damage():
+	if not isDamageExecuting and health > 0:
+		isDamageExecuting = true
+		health -= 1
+		print(health)
+		yield(get_tree().create_timer(1.0), "timeout")
+		isDamageExecuting = false
 
 func _physics_process(_delta):
 	# Movement
@@ -15,10 +25,10 @@ func _physics_process(_delta):
 	)
 
 	if input_vector == Vector2.ZERO:
-		velocity = Vector2.ZERO
+		motion = Vector2.ZERO
 	else:
-		velocity = input_vector.normalized() * speed
-	move_and_slide(velocity)
+		motion = input_vector.normalized() * speed
+	move_and_slide(motion)
 
 	# Animation
 	var direction = Vector2.ZERO
@@ -53,3 +63,7 @@ func _physics_process(_delta):
 		else:
 			animation.play("IdleLR")
 			$Silvangoisse.flip_h = lastDirection == Vector2.LEFT
+
+	#Dead lol
+	if health == 0:
+		get_tree().reload_current_scene()
