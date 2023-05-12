@@ -1,0 +1,27 @@
+{
+  "Pistol": {
+    "ItemCategory": "Weapon",
+    "StackSize": 1,
+  },
+  "Bullets": {
+    "ItemCategory": "Ammo",
+    "StackSize": 99,
+  },
+  "Medicine": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 5,
+    "StackSize": 99,
+  }
+  "Shotgun": {
+    "ItemCategory": "Weapon",
+    "StackSize": 1,
+  },
+  "Shells": {
+    "ItemCategory": "Ammo",
+    "StackSize": 99,
+  },
+  "Keys": {
+    "ItemCategory": "Key",
+    "StackSize": 3,
+  }
+}

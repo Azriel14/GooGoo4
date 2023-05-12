@@ -1,8 +1,9 @@
-extends Node2D
+extends Area2D
 
 func _ready():
-	if randi() % 2 == 0:
-		$TextureRect.texture = load("res://Assets/menu_knowledge_01017.png")
-	else:
-		$TextureRect.texture = load("res://Assets/QuicksilverBullets.webp")
-	
+	connect("body_entered", self, "_on_body_entered")
+
+func _on_body_entered(body):
+	if body.has_method("pick_up"):
+		body.pick_up(self)
+		emit_signal("Picked_up")
