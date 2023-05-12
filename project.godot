@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Game.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
+[autoload]
+
+JsonData="*res://Scripts/JSONData.gd"
+
 [display]
 
 window/size/width=1280

@@ -12,7 +12,7 @@
 [ext_resource path="res://Scripts/Item.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Sounds/Footsteps.wav" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/menu_knowledge_01017.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Pistol.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=4]
 resource_name = "IdleD"
@@ -785,7 +785,6 @@ position = Vector2( 3590, -1055 )
 position = Vector2( 4455, -2040 )
 
 [node name="Hud + Inventory" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inventory" parent="Hud + Inventory" instance=ExtResource( 8 )]
 

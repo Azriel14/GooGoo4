@@ -4,15 +4,46 @@ const inventoryHeight = 720
 const animationDuration = 0.3
 var isVisible = false
 var tween: Tween
+const SlotClass = preload("res://Scripts/Slot.gd")
+onready var inventorySlots = $GridContainer
+var holdingItem = null
+
+
 
 func _ready():
+	#inventory management
+	for invSlot in inventorySlots.get_children():
+		invSlot.connect("gui_input", self, "slot_gui_input", [invSlot])
+	
+	#animation for the menu to come into the scene
 	tween = Tween.new()
 	add_child(tween)
 	set_process_input(true)
 	set_process_unhandled_input(true)
 	rect_position.y = get_viewport_rect().size.y
 
+func slotGuiInput(event: InputEvent, slot: SlotClass):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && event.pressed:
+			if holdingItem != null:
+				if !slot.item:
+					slot.putIntoSlot(holdingItem)
+					holdingItem = null
+				else:
+					var tempItem = slot.item
+					slot.pickFromSlot()
+					tempItem.global_position = event.global_position
+					slot.putIntoSlot(holdingItem)
+					holdingItem = tempItem
+			elif slot.item:
+				holdingItem = slot.item
+				slot.pickFromSlot()
+				holdingItem.global_position = get_global_mouse_position()
+
 func _input(event):
+	if holdingItem:
+		holdingItem.global_position = get_global_mouse_position()	
+	
 	if event.is_action_pressed("ui_inventory"):
 		toggle_visibility()
 		set_process_unhandled_input(false)

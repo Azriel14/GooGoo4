@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/menu_knowledge_01017.png-349dc7e44acdf9b13229f2c998fb3699.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://Assets/menu_knowledge_01017.png"
-dest_files=[ "res://.import/menu_knowledge_01017.png-349dc7e44acdf9b13229f2c998fb3699.stex" ]
-
+source_file="res://Assets/Bullets.png"
 [params]
 
 compress/mode=0
