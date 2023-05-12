@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/InventoryPlaceholder.PNG-cd146e8cbb650724bd775f1c1e22ad80.stex"
+path="res://.import/QuicksilverBullets.webp-5b62b42da47b8870df22bf796395d648.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/InventoryPlaceholder.PNG"
-dest_files=[ "res://.import/InventoryPlaceholder.PNG-cd146e8cbb650724bd775f1c1e22ad80.stex" ]
+source_file="res://Assets/QuicksilverBullets.webp"
+dest_files=[ "res://.import/QuicksilverBullets.webp-5b62b42da47b8870df22bf796395d648.stex" ]
 
 [params]
 
