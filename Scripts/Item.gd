@@ -4,13 +4,14 @@ var itemName
 var itemQuantity
 
 func _ready():
-	var randVal = randi() % 3
-	if randVal == 0:
+	var rand_val = randi() % 2
+	if rand_val == 0:
 		itemName = "Pistol"
-	elif randVal == 1:
+	else:
 		itemName = "Bullets"
-	$Sprite.texture= load("res://Assets/" + str(itemName) + ".png")
-	var stackSize = int(JsonData.itemData[itemName]["Stack Size"])
+	
+	$Sprite.texture = load("res://Assets/" + itemName + ".png")
+	var stackSize = int(JsonData.itemData[itemName]["StackSize"])
 	itemQuantity = randi() % stackSize + 1
 	
 	if stackSize == 1:
@@ -18,13 +19,10 @@ func _ready():
 	else:
 		$Label.text = String(itemQuantity)
 		
-#func add_item_quantity(amountToAdd)
-
-
-		
-	connect("body_entered", self, "_on_body_entered")
-
-func _on_body_entered(body):
-	if body.has_method("pick_up"):
-		body.pick_up(self)
-		emit_signal("Picked_up")
+func add_item_quantity(amountToAdd):
+	itemQuantity += amountToAdd
+	$Label.text = String(itemQuantity)
+	
+func decrease_item_quantity(amountToRemove):
+	itemQuantity -= amountToRemove
+	$Label.text = String(itemQuantity)

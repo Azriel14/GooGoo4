@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/Bullets.png-44fdf8322d32ba155c38713b3e3e3a2d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Assets/Bullets.png"
+dest_files=[ "res://.import/Bullets.png-44fdf8322d32ba155c38713b3e3e3a2d.stex" ]
+
 [params]
 
 compress/mode=0

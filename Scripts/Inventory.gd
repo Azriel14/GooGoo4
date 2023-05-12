@@ -5,17 +5,17 @@ const animationDuration = 0.3
 var isVisible = false
 var tween: Tween
 const SlotClass = preload("res://Scripts/Slot.gd")
-onready var inventorySlots = $GridContainer
+onready var inventorySlots = get_node("TextureRect/GridContainer")
 var holdingItem = null
 
 
 
 func _ready():
-	#inventory management
+	# Inventory management
 	for invSlot in inventorySlots.get_children():
 		invSlot.connect("gui_input", self, "slot_gui_input", [invSlot])
 	
-	#animation for the menu to come into the scene
+	# Animation for the menu to come into the scene
 	tween = Tween.new()
 	add_child(tween)
 	set_process_input(true)
