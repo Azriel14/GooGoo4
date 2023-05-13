@@ -20,6 +20,7 @@ func _update_path_finding():
 	if player:
 		pathfinding.set_target_location(player.global_position)
 
+# Noises
 func _dont_spoop():
 	if not isNotSpoopying:
 		isNotSpoopying = true

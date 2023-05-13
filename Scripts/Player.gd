@@ -10,6 +10,7 @@ var isDamageExecuting = false
 var poop
 onready var animation = $Animation
 
+# Hurty
 func _damage():
 	if not isDamageExecuting and health > 0:
 		isDamageExecuting = true

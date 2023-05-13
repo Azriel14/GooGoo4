@@ -14,14 +14,14 @@ func _ready():
 	for i in range(numSlots):
 		var inventorySlots = get_node("TextureRect/GridContainer/InventorySlot%d" % (i+1))
 		inventoryItems.append(inventorySlots)
-			
-	# Animation
+
 	tween = Tween.new()
 	add_child(tween)
 	set_process_input(true)
 	set_process_unhandled_input(true)
 	rect_position.y = get_viewport_rect().size.y
 
+# Toggle uppy downy
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		toggle_visibility()
@@ -37,6 +37,7 @@ func toggle_visibility():
 		poop = tween.interpolate_property(self, "rect_position:y", rect_position.y, get_viewport_rect().size.y - inventoryHeight, animationDuration, Tween.TRANS_QUAD, Tween.EASE_IN)
 		poop = tween.start()
 
+# Picky uppy items
 func add_item(item):
 	if count == 0:
 		var new_item = item.duplicate()
