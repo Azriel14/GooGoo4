@@ -14,6 +14,7 @@ config/name="GooGoo4"
 run/main_scene="res://Scenes/Game.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Assets/Sprites/Icon-export.png"
 
 [display]
 
