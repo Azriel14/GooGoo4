@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
 export var speed = 175
+export var health = 20
 var motion = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 var isMoving = false
 var isDamageExecuting = false
-export var health = 20
+var poop
 onready var animation = $Animation
 
 func _damage():
@@ -37,7 +38,7 @@ func _physics_process(delta):
 		if $Footsteps.volume_db > 3:
 			$Footsteps.volume_db = 3
 
-	move_and_slide(motion)
+	motion = move_and_slide(motion)
 
 	# Animation
 	var direction = Vector2.ZERO
@@ -75,4 +76,4 @@ func _physics_process(delta):
 
 	#Dead lol
 	if health == 0:
-		get_tree().reload_current_scene()
+		poop = get_tree().reload_current_scene()

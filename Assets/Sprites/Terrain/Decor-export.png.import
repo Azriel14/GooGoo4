@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bullets.png-44fdf8322d32ba155c38713b3e3e3a2d.stex"
+path="res://.import/Decor-export.png-6d6e96eef7daf03dee36b50067f04c53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bullets.png"
-dest_files=[ "res://.import/Bullets.png-44fdf8322d32ba155c38713b3e3e3a2d.stex" ]
+source_file="res://Assets/Sprites/Terrain/Decor-export.png"
+dest_files=[ "res://.import/Decor-export.png-6d6e96eef7daf03dee36b50067f04c53.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

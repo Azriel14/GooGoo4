@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TileSetSmall.png-605b6d54e0c6166c6fa8444b09803ac5.stex"
+path="res://.import/DecorSmall.png-afacd559f496743f364940b9ef786919.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/TileSetSmall.png"
-dest_files=[ "res://.import/TileSetSmall.png-605b6d54e0c6166c6fa8444b09803ac5.stex" ]
+source_file="res://Assets/Sprites/Terrain/DecorSmall.png"
+dest_files=[ "res://.import/DecorSmall.png-afacd559f496743f364940b9ef786919.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TileSet-export.png-d1b3ecbc99043ee34dc2f39e7dc11392.stex"
+path="res://.import/InventoryBackgroundSmall.png-6dd44aade5e856474b6ec3e1947edf8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/TileSet-export.png"
-dest_files=[ "res://.import/TileSet-export.png-d1b3ecbc99043ee34dc2f39e7dc11392.stex" ]
+source_file="res://Assets/Sprites/Inventory + Items/InventoryBackgroundSmall.png"
+dest_files=[ "res://.import/InventoryBackgroundSmall.png-6dd44aade5e856474b6ec3e1947edf8b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

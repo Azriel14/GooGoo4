@@ -1,28 +1,15 @@
 extends Area2D
 
-var itemName
-var itemQuantity
+func _physics_process(_delta):
+	var overlapping_bodies = get_overlapping_bodies()
+	if not overlapping_bodies:
+		return
 
-func _ready():
-	var rand_val = randi() % 2
-	if rand_val == 0:
-		itemName = "Pistol"
-	else:
-		itemName = "Bullets"
-	
-	$Sprite.texture = load("res://Assets/" + itemName + ".png")
-	var stackSize = int(JsonData.itemData[itemName]["StackSize"])
-	itemQuantity = randi() % stackSize + 1
-	
-	if stackSize == 1:
-		$Label.visible = false
-	else:
-		$Label.text = String(itemQuantity)
-		
-func add_item_quantity(amountToAdd):
-	itemQuantity += amountToAdd
-	$Label.text = String(itemQuantity)
-	
-func decrease_item_quantity(amountToRemove):
-	itemQuantity -= amountToRemove
-	$Label.text = String(itemQuantity)
+	for body in overlapping_bodies:
+		if body.is_in_group("Player"):
+			add_to_inventory()
+
+func add_to_inventory():
+	var inventory = get_node("../../Hud + Inventory/Inventory")
+	inventory.add_item(self)
+

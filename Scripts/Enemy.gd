@@ -12,15 +12,15 @@ onready var animation = $Animation
 onready var timer = $Timer
 
 func _ready():
-	_updatePathfinding()
-	timer.connect("timeout", self, "_updatePathfinding")
+	_update_path_finding()
+	timer.connect("timeout", self, "_update_path_finding")
 	originalPosition = global_position
 	
-func _updatePathfinding():
+func _update_path_finding():
 	if player:
 		pathfinding.set_target_location(player.global_position)
 
-func _dontSpoop():
+func _dont_spoop():
 	if not isNotSpoopying:
 		isNotSpoopying = true
 		$Sound.stream = load("res://Assets/Sounds/EnemyIdle.ogg")
@@ -45,7 +45,7 @@ func _physics_process(delta: float):
 	var distance = global_position.distance_to(player.global_position)
 	if distance > detectionRange:
 		direction = global_position.direction_to(originalPosition)
-		_dontSpoop()
+		_dont_spoop()
 	else:
 		direction = global_position.direction_to(pathfinding.get_next_location())
 		_spoop()

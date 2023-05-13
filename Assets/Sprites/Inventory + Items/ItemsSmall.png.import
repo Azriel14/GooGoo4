@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoctorSilvangoisseSmall.png-65ad60c411eee5643f0746109b9e175b.stex"
+path="res://.import/ItemsSmall.png-2d414edfd0f39ba93451df764ec9b3df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/DoctorSilvangoisseSmall.png"
-dest_files=[ "res://.import/DoctorSilvangoisseSmall.png-65ad60c411eee5643f0746109b9e175b.stex" ]
+source_file="res://Assets/Sprites/Inventory + Items/ItemsSmall.png"
+dest_files=[ "res://.import/ItemsSmall.png-2d414edfd0f39ba93451df764ec9b3df.stex" ]
 
 [params]
 

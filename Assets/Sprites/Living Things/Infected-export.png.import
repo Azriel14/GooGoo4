@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shadow-export.png-1f4b28de6875e47052a8e899d5e3b611.stex"
+path="res://.import/Infected-export.png-d0c10047256963398795ebd1d5a9b894.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Shadow-export.png"
-dest_files=[ "res://.import/Shadow-export.png-1f4b28de6875e47052a8e899d5e3b611.stex" ]
+source_file="res://Assets/Sprites/Living Things/Infected-export.png"
+dest_files=[ "res://.import/Infected-export.png-d0c10047256963398795ebd1d5a9b894.stex" ]
 
 [params]
 

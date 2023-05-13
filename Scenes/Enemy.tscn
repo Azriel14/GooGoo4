@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Infected-export.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Living Things/Infected-export.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/EnemyIdle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Misc/LightTexture.webp" type="Texture" id=4]
 

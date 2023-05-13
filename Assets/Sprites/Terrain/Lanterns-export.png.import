@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DecorSmall.png-a24b5bfdc70016462a3026f08ac6d791.stex"
+path="res://.import/Lanterns-export.png-9c5174a0ce3a321a6e00ba28d77200f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/DecorSmall.png"
-dest_files=[ "res://.import/DecorSmall.png-a24b5bfdc70016462a3026f08ac6d791.stex" ]
+source_file="res://Assets/Sprites/Terrain/Lanterns-export.png"
+dest_files=[ "res://.import/Lanterns-export.png-9c5174a0ce3a321a6e00ba28d77200f3.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

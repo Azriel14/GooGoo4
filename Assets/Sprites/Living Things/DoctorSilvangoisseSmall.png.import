@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LanternsSmall.png-12062d9e14735279d7b89e173ffa7283.stex"
+path="res://.import/DoctorSilvangoisseSmall.png-0d31b3ed43c560b2f7629b51abcad836.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/LanternsSmall.png"
-dest_files=[ "res://.import/LanternsSmall.png-12062d9e14735279d7b89e173ffa7283.stex" ]
+source_file="res://Assets/Sprites/Living Things/DoctorSilvangoisseSmall.png"
+dest_files=[ "res://.import/DoctorSilvangoisseSmall.png-0d31b3ed43c560b2f7629b51abcad836.stex" ]
 
 [params]
 
