@@ -5,4 +5,4 @@ onready var player = $"../Player"
 
 func _physics_process(_delta):
 	var health = player.health
-	label.text = "%d Health" % health
+	label.text = "Health: %d" % health

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export var speed = 175
-export var health = 20
+export var speed = 190
+export var health = 25
 var motion = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
@@ -17,6 +17,7 @@ func _damage():
 		health -= 1
 		print(health)
 		yield(get_tree().create_timer(1.5), "timeout")
+		$Hurt.play()
 		isDamageExecuting = false
 
 func _physics_process(delta):
