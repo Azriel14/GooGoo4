@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Living Things/Infected-export.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/EnemyIdle.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Misc/LightTexture.webp" type="Texture" id=4]
+[ext_resource path="res://Assets/Sounds/EnemyHurt.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DraggingLRD"
@@ -100,8 +101,13 @@ path_max_distance = 10.0
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -3.0
 autoplay = true
 max_distance = 1100.0
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -4.0
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

@@ -1,21 +1,39 @@
 extends KinematicBody2D
 
-export var speed = 190
+export var speed = 200
 export var health = 25
 var motion = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
 var isMoving = false
 var isDamageExecuting = false
+var isShooting = false
 var poop
 onready var animation = $Animation
+const bulletPath = preload("res://Scenes/Bullet.tscn")
+
+func bang():
+	speed = speed - speed/80
+	var bullet = bulletPath.instance()
+	get_parent().add_child(bullet)
+	$Shoot.play()
+	if lastDirection == Vector2.UP:
+		bullet.rotation_degrees = 0
+	elif lastDirection == Vector2.DOWN:
+		bullet.rotation_degrees = 180
+	elif lastDirection == Vector2.LEFT:
+		bullet.rotation_degrees = 270
+	elif lastDirection == Vector2.RIGHT:
+		bullet.rotation_degrees = 90
+	bullet.position = position
+	bullet.velocity = lastDirection
+	pass
 
 # Hurty
 func _damage():
 	if not isDamageExecuting and health > 0:
 		isDamageExecuting = true
 		health -= 1
-		print(health)
 		yield(get_tree().create_timer(1.5), "timeout")
 		$Hurt.play()
 		isDamageExecuting = false
@@ -42,7 +60,7 @@ func _physics_process(delta):
 
 	motion = move_and_slide(motion)
 
-	# Animation
+	# Direction
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
 		direction = Vector2.UP
@@ -57,24 +75,47 @@ func _physics_process(delta):
 		direction = Vector2.LEFT
 		$Silvangoisse.flip_h = true
 
-	if direction != Vector2.ZERO:
-		lastDirection = direction
-		isMoving = true
-		if direction == Vector2.UP:
-			animation.play("WalkU")
-		elif direction == Vector2.DOWN:
-			animation.play("WalkD")
-		else:
-			animation.play("WalkLR")
-	else:
-		isMoving = false
+	# Gun
+	if not isShooting and Input.is_action_pressed("ui_shoot"):
+		isShooting = true
+		yield(get_tree().create_timer(1), "timeout")
 		if lastDirection == Vector2.UP:
-			animation.play("IdleU")
+			$Silvangoisse.flip_h = false
+			bang()
 		elif lastDirection == Vector2.DOWN:
-			animation.play("IdleD")
+			$Silvangoisse.set_frame(20)
+			$Silvangoisse.flip_h = false
+			bang()
+		elif lastDirection == Vector2.LEFT:
+			$Silvangoisse.set_frame(19)
+			$Silvangoisse.flip_h = true
+			bang()
+		elif lastDirection == Vector2.RIGHT:
+			$Silvangoisse.set_frame(19)
+			$Silvangoisse.flip_h = false
+			bang()
+		isShooting = false
+
+	#Animation
+	if isShooting == false:
+		if direction != Vector2.ZERO:
+			lastDirection = direction
+			isMoving = true
+			if direction == Vector2.UP:
+				animation.play("WalkU")
+			elif direction == Vector2.DOWN:
+				animation.play("WalkD")
+			else:
+				animation.play("WalkLR")
 		else:
-			animation.play("IdleLR")
-			$Silvangoisse.flip_h = lastDirection == Vector2.LEFT
+			isMoving = false
+			if lastDirection == Vector2.UP:
+				animation.play("IdleU")
+			elif lastDirection == Vector2.DOWN:
+				animation.play("IdleD")
+			else:
+				animation.play("IdleLR")
+				$Silvangoisse.flip_h = lastDirection == Vector2.LEFT
 
 	#Dead lol
 	if health == 0:
