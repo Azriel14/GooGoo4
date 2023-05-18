@@ -6,6 +6,7 @@ var motion := Vector2.ZERO
 var originalPosition
 var isSpoopying = false
 var isNotSpoopying = false
+var isDamageExecuting = false
 var health = 3
 onready var player := get_tree().get_root().get_node("Game").get_node("Player")
 onready var pathfinding = $Pathfinding
@@ -22,8 +23,12 @@ func _update_path_finding():
 		pathfinding.set_target_location(player.global_position)
 
 func _damage():
+	if not isDamageExecuting and health > 0:
+		isDamageExecuting = true
 		health -= 1
+		yield(get_tree().create_timer(0.25), "timeout")
 		$Hurt.play()
+		isDamageExecuting = false
 
 # Noises
 func _dont_spoop():

@@ -5,7 +5,7 @@ export var detectionRange: float = 1000
 var motion := Vector2.ZERO
 var originalPosition
 var health = 5
-var alive = 6
+var isDamageExecuting = false
 onready var player := get_tree().get_root().get_node("Game").get_node("Player")
 onready var pathfinding = $Pathfinding
 onready var animation = $Animation
@@ -21,13 +21,16 @@ func _update_path_finding():
 		pathfinding.set_target_location(player.global_position)
 
 func _damage():
+	if not isDamageExecuting and health > 0:
+		isDamageExecuting = true
 		health -= 1
+		yield(get_tree().create_timer(0.25), "timeout")
 		$Hurt.play()
+		isDamageExecuting = false
 
 func _physics_process(delta: float):
 	#Dead lol
 	if health == 0:
-		alive -= 1
 		queue_free()
 		
 	# Movement

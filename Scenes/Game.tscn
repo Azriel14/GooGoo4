@@ -330,10 +330,10 @@ pitch_scale = 1.1
 
 [node name="Hurt" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 13 )
-volume_db = 10.0
 
 [node name="Shoot" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 18 )
+volume_db = -10.0
 
 [node name="Stage" type="Node2D" parent="."]
 

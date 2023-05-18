@@ -34,8 +34,8 @@ func _damage():
 	if not isDamageExecuting and health > 0:
 		isDamageExecuting = true
 		health -= 1
-		yield(get_tree().create_timer(1.5), "timeout")
 		$Hurt.play()
+		yield(get_tree().create_timer(1.5), "timeout")
 		isDamageExecuting = false
 
 func _physics_process(delta):
@@ -78,22 +78,22 @@ func _physics_process(delta):
 	# Gun
 	if not isShooting and Input.is_action_pressed("ui_shoot"):
 		isShooting = true
-		yield(get_tree().create_timer(1), "timeout")
 		if lastDirection == Vector2.UP:
 			$Silvangoisse.flip_h = false
 			bang()
 		elif lastDirection == Vector2.DOWN:
-			$Silvangoisse.set_frame(20)
+			$Silvangoisse.set_frame(19)
 			$Silvangoisse.flip_h = false
 			bang()
 		elif lastDirection == Vector2.LEFT:
-			$Silvangoisse.set_frame(19)
+			$Silvangoisse.set_frame(18)
 			$Silvangoisse.flip_h = true
 			bang()
 		elif lastDirection == Vector2.RIGHT:
-			$Silvangoisse.set_frame(19)
+			$Silvangoisse.set_frame(18)
 			$Silvangoisse.flip_h = false
 			bang()
+		yield(get_tree().create_timer(0.5), "timeout")
 		isShooting = false
 
 	#Animation
