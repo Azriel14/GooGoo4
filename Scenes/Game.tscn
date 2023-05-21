@@ -316,7 +316,7 @@ editor_draw_drag_margin = true
 [node name="RingLight" type="Light2D" parent="Player"]
 position = Vector2( 1, 0 )
 texture = ExtResource( 7 )
-texture_scale = 1.25
+texture_scale = 1.35
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 energy = 3.0
 
@@ -340,8 +340,10 @@ volume_db = -10.0
 [node name="Lanterns" type="TileMap" parent="Stage"]
 z_index = 1
 tile_set = SubResource( 15 )
+collision_layer = 4
+collision_mask = 3
 format = 1
-tile_data = PoolIntArray( -2817972, 0, 0, -2817950, 1, 0, -2555896, 3, 0, -2424778, 1, 0, -2359274, 1, 0, -2293685, 1, 0, -2162650, 2, 0, -2162640, 3, 0, -1900468, 0, 0, -1900446, 1, 0, -1572826, 0, 0, -1376228, 1, 0, -1310709, 2, 0, -1179644, 0, 0, -982989, 3, 0, -982964, 0, 0, -982942, 1, 0, -851919, 0, 0, -786417, 1, 0, -786401, 0, 0, -786397, 1, 0, -327628, 1, 0, -196584, 0, 0, -196566, 1, 0, 21, 3, 0, 65615, 2, 0, 65631, 3, 0 )
+tile_data = PoolIntArray( -2817972, 0, 0, -2817950, 1, 0, -2555896, 3, 0, -2424778, 1, 0, -2359274, 1, 0, -2293685, 1, 0, -2162650, 2, 0, -2162640, 3, 0, -1900468, 0, 0, -1900446, 1, 0, -1572826, 0, 0, -1376228, 1, 0, -1310709, 2, 0, -1245119, 1, 0, -1179644, 0, 0, -982989, 3, 0, -982964, 0, 0, -982942, 1, 0, -851919, 0, 0, -786417, 1, 0, -786401, 0, 0, -786397, 1, 0, -327628, 1, 0, -196584, 0, 0, -196566, 1, 0, 21, 3, 0, 65615, 2, 0, 65631, 3, 0 )
 
 [node name="1" type="Light2D" parent="Stage/Lanterns"]
 position = Vector2( 1390, 40 )
@@ -505,6 +507,15 @@ color = Color( 0.254902, 0, 0.0666667, 1 )
 energy = 2.0
 shadow_enabled = true
 
+[node name="28" type="Light2D" parent="Stage/Lanterns"]
+position = Vector2( 4205, -1180 )
+scale = Vector2( 2.34774, 2.65552 )
+texture = ExtResource( 7 )
+texture_scale = 2.25
+color = Color( 0.254902, 0, 0.0666667, 1 )
+energy = 2.0
+shadow_enabled = true
+
 [node name="19" type="Light2D" parent="Stage/Lanterns"]
 position = Vector2( 4845, -2205 )
 scale = Vector2( 2.34774, 2.65552 )
@@ -650,6 +661,8 @@ shape = SubResource( 37 )
 
 [node name="Unlock1" type="StaticBody2D" parent="Stage"]
 position = Vector2( 4737, -2048 )
+collision_layer = 4
+collision_mask = 3
 script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Unlock1"]
@@ -664,6 +677,8 @@ tile_data = PoolIntArray( -196608, 6, 0, -131072, 6, 65536, -65536, 6, 65536, 0,
 
 [node name="Unlock2" type="StaticBody2D" parent="Stage"]
 position = Vector2( 5632, 128 )
+collision_layer = 4
+collision_mask = 3
 script = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Unlock2"]
