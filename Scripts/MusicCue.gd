@@ -1,6 +1,7 @@
 extends Area2D
 
 var musicPlaying
+signal rawr
 
 func _physics_process(_delta):
 	var overlapping_bodies = get_overlapping_bodies()
@@ -10,6 +11,7 @@ func _physics_process(_delta):
 	for body in overlapping_bodies:
 		if body.is_in_group("Player"):
 			_da_music()
+			emit_signal("rawr")
 
 func _da_music():
 	if not musicPlaying:

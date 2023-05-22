@@ -5,6 +5,7 @@ export var health = 25
 var motion = Vector2.ZERO
 var screenSize = Vector2.ZERO
 var lastDirection = Vector2.ZERO
+var direction = Vector2.ZERO
 var isMoving = false
 var isDamageExecuting = false
 var isShooting = false
@@ -17,16 +18,16 @@ func bang():
 	var bullet = bulletPath.instance()
 	get_parent().add_child(bullet)
 	$Shoot.play()
-	if lastDirection == Vector2.UP:
+	if direction == Vector2.UP:
 		bullet.rotation_degrees = 0
-	elif lastDirection == Vector2.DOWN:
+	elif direction == Vector2.DOWN:
 		bullet.rotation_degrees = 180
-	elif lastDirection == Vector2.LEFT:
+	elif direction == Vector2.LEFT:
 		bullet.rotation_degrees = 270
-	elif lastDirection == Vector2.RIGHT:
+	elif direction == Vector2.RIGHT:
 		bullet.rotation_degrees = 90
 	bullet.position = position
-	bullet.velocity = lastDirection
+	bullet.velocity = direction
 	pass
 
 # Hurty
@@ -46,12 +47,14 @@ func _physics_process(delta):
 		)
 
 	if input_vector == Vector2.ZERO:
+		isMoving = false
 		motion = Vector2.ZERO
 		$Footsteps.volume_db -= delta * 20
 		if $Footsteps.volume_db < -30:
 			$Footsteps.stop()
 	else:
 		motion = input_vector.normalized() * speed
+		isMoving = true
 		$Footsteps.volume_db += delta * 20
 		if !$Footsteps.playing:
 			$Footsteps.play()
@@ -61,7 +64,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 
 	# Direction
-	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_up"):
 		direction = Vector2.UP
 		$Silvangoisse.flip_h = false
@@ -78,29 +80,31 @@ func _physics_process(delta):
 	# Gun
 	if not isShooting and Input.is_action_pressed("ui_shoot"):
 		isShooting = true
-		if lastDirection == Vector2.UP:
+		if direction == Vector2.UP:
 			$Silvangoisse.flip_h = false
 			bang()
-		elif lastDirection == Vector2.DOWN:
+		elif direction == Vector2.DOWN:
+			animation.stop()
 			$Silvangoisse.set_frame(19)
 			$Silvangoisse.flip_h = false
 			bang()
-		elif lastDirection == Vector2.LEFT:
+		elif direction == Vector2.LEFT:
+			animation.stop()
 			$Silvangoisse.set_frame(18)
 			$Silvangoisse.flip_h = true
 			bang()
-		elif lastDirection == Vector2.RIGHT:
+		elif direction == Vector2.RIGHT:
+			animation.stop()
 			$Silvangoisse.set_frame(18)
 			$Silvangoisse.flip_h = false
 			bang()
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(0.65), "timeout")
 		isShooting = false
 
 	#Animation
 	if isShooting == false:
-		if direction != Vector2.ZERO:
+		if isMoving:
 			lastDirection = direction
-			isMoving = true
 			if direction == Vector2.UP:
 				animation.play("WalkU")
 			elif direction == Vector2.DOWN:
@@ -108,7 +112,6 @@ func _physics_process(delta):
 			else:
 				animation.play("WalkLR")
 		else:
-			isMoving = false
 			if lastDirection == Vector2.UP:
 				animation.play("IdleU")
 			elif lastDirection == Vector2.DOWN:

@@ -11,4 +11,7 @@ func _physics_process(_delta):
 	var alive = get_tree().get_nodes_in_group("Enemy").size()
 	label1.text = "Health: %d" % health
 	label2.text = "Speed: %d" % speed
-	label3.text = "Enemies left: %d" % alive
+	if alive > 4:
+		label3.text = "Enemies left: %d" % (alive - 4)
+	else:
+		label3.text = "Boss room time :)"
