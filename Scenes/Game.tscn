@@ -316,8 +316,8 @@ editor_draw_drag_margin = true
 [node name="RingLight" type="Light2D" parent="Player"]
 position = Vector2( 1, 0 )
 texture = ExtResource( 7 )
-texture_scale = 1.35
-color = Color( 0.156863, 0.156863, 0.156863, 1 )
+texture_scale = 1.6
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
 energy = 3.0
 
 [node name="Shadow" type="LightOccluder2D" parent="Player"]
