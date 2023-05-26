@@ -36,6 +36,7 @@ func _damage():
 		isDamageExecuting = true
 		health -= 1
 		$Hurt.play()
+		$"../HUD/ColorRect/AnimationPlayer".play("hurt")
 		yield(get_tree().create_timer(1.5), "timeout")
 		isDamageExecuting = false
 

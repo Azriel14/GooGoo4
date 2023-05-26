@@ -53,16 +53,17 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 20.0
-height = 30.0
+radius = 22.0
+height = 138.0
 
 [sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( 54, 49, 55, 56, -18, 56, -20, 50 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 29, 58 )
+extents = Vector2( 34.5, 66 )
 
 [node name="Enemy" type="KinematicBody2D"]
+scale = Vector2( 1.2, 1.2 )
 script = ExtResource( 1 )
 
 [node name="Infected" type="Sprite" parent="."]
@@ -79,11 +80,12 @@ anims/RESET = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="RingLight" type="Light2D" parent="."]
+light_mask = 0
 position = Vector2( 1, 0 )
 texture = ExtResource( 4 )
 texture_scale = 1.25
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
-energy = 4.0
+energy = 3.0
 
 [node name="Shadow" type="LightOccluder2D" parent="."]
 position = Vector2( -16, 41 )
@@ -102,9 +104,9 @@ path_max_distance = 10.0
 stream = ExtResource( 3 )
 volume_db = -7.0
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( -1, 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -0.5, 0 )
 shape = SubResource( 6 )

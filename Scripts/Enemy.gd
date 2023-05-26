@@ -81,7 +81,7 @@ func _physics_process(delta: float):
 		$Infected.flip_h = false
 
 	# Damage player
-	var overlapping_bodies = $Hurtbox.get_overlapping_bodies()
+	var overlapping_bodies = $Hitbox.get_overlapping_bodies()
 	if not overlapping_bodies:
 		return
 

@@ -43,7 +43,7 @@ func _physics_process(delta: float):
 		var direction := global_position.direction_to(pathfinding.get_next_location())
 		if true:
 			direction = global_position.direction_to(pathfinding.get_next_location())
-		var desiredMotion := direction * 150
+		var desiredMotion := direction * 170
 		var steering := (desiredMotion - motion) * delta * 4.0
 		motion += steering
 		motion = move_and_slide(motion)
@@ -60,7 +60,7 @@ func _physics_process(delta: float):
 			$Infected.flip_h = false
 
 	# Damage player
-	var overlapping_bodies = $Hurtbox.get_overlapping_bodies()
+	var overlapping_bodies = $Hitbox.get_overlapping_bodies()
 	if not overlapping_bodies:
 		return
 	
